@@ -13,3 +13,6 @@ EX: [15, 20, 4, 5] - "OneFive, TwoZero, Four, Five"
    to determine if a number in the array is greater than nine(9), it would call the splitToDigit function and save the returned value into a temp variable.
    Then a for loop would iterate over the temp varable and call the toWords() function while saving the return of the call into a concatanating variable called 'word'.
    
+## Run
+Clone or download repo, navaigte to the location where its saved via your prefferes command line tool,
+run "node main.js <input values>"
