@@ -45,3 +45,36 @@ function toWords(val){
 function splitToDigit(n){
     return [...n + ''].map(Number);
 }
+
+
+/**
+ * Main function, calls both the splitToDigit function and the toWords Function
+ * Write a function that changes number to the word or letter equivalent
+ * ex: [3,25, 21] - [three, twoFive, twoOne]
+ */
+
+function numToWords (params) {
+    var newNum = null;
+    var word =""
+    var newArray = new Array();
+    for (var i = 0; i < params.length; i++) {
+        if(params[i] > 9){
+            newNum = splitToDigit(params[i]);
+            for(var j  = 0; j<newNum.length; j++){
+                word +=toWords(newNum[j]);
+            }
+            newArray.push(word)
+            word = ""
+        }
+        else{
+            newArray.push(toWords(params[i]))
+        }
+        
+    }
+    return  ' "' +newArray.toString() + '" ';
+}
+
+var x = [3, 25, 209]; //Test values
+var y = [10, 300, 5]; // Test values
+console.log(numToWords(x)) 
+console.log(numToWords(y))
