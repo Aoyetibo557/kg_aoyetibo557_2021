@@ -1,7 +1,22 @@
 /**
  * Anuoluwapo Oyetibo
  * 04/27/21
+ * Kargo SE test assesment
  */
+
+// Getting varaible from the command line
+var myArgs = process.argv.slice(2);
+console.log("MyArgs:", myArgs)
+
+/**
+ * SplitToDigit Function takes a number and seperates them into a new array
+ * @param {input number} n 
+ * @returns seperated number
+ */
+function splitToDigit(n){
+    return [...n + ''].map(Number);
+}
+
 
 /**
  * This function takes in a value and uses a switch statement to determine the 
@@ -10,6 +25,7 @@
  * @returns the string equivalant of the input number
  */
 function toWords(val){
+    val = parseInt(val, 10)
     switch (val) {
         case 0:
             return "Zero"
@@ -37,14 +53,6 @@ function toWords(val){
     }
 }
 
-/**
- * SplitToDigit Function takes a number and seperates them into a new array
- * @param {input number} n 
- * @returns seperated number
- */
-function splitToDigit(n){
-    return [...n + ''].map(Number);
-}
 
 
 /**
@@ -57,24 +65,23 @@ function numToWords (params) {
     var newNum = null;
     var word =""
     var newArray = new Array();
+
     for (var i = 0; i < params.length; i++) {
         if(params[i] > 9){
             newNum = splitToDigit(params[i]);
             for(var j  = 0; j<newNum.length; j++){
                 word +=toWords(newNum[j]);
             }
-            newArray.push(word)
+            newArray = [...newArray, word]
+            // newArray.push(word)
             word = ""
         }
-        else{
+        else {
             newArray.push(toWords(params[i]))
-        }
-        
+        }        
     }
-    return  ' "' +newArray.toString() + '" ';
+    return  ' "' +newArray.toString()+ '" ';
 }
 
-var x = [3, 25, 209]; //Test values
-var y = [10, 300, 5]; // Test values
-console.log(numToWords(x)) 
-console.log(numToWords(y))
+// To print out the function result
+console.log(numToWords(myArgs))
