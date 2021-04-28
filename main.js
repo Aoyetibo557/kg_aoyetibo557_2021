@@ -5,7 +5,7 @@
 
 // Getting varaible from the command line
 var myArgs = process.argv.slice(2);
-console.log("MyArgs:", myArgs)
+// console.log("MyArgs:", myArgs)
 
 /**
  * SplitToDigit Function takes a number and seperates them into a new array
